@@ -1,0 +1,11 @@
+{
+    "mentions":{
+        "titre":"Mentions Légales",
+        "contenu":"Ces mentions ne servent à rien parce que c'est un cours et que de toute façon tout est partagé."
+    },
+    "profil":{
+        "titre": "Profil de l'utilisateur",
+        "nom": "Dupont",
+        "prenom":"Tintin"
+    }
+}

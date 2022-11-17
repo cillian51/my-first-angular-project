@@ -1,0 +1,75 @@
+[
+    {
+        "code": "AGX-CDG-22-11-18",
+        "avion":{
+            "modele":"A-320",
+            "capacite":"150",
+            "autonomie":"5400",
+            "code":"A-320"
+        },
+        "date":"22-11-18",
+        "personnels":[
+            {
+                "nom":"Doe",
+                "prenom":[
+                    "Jane",
+                    "John"
+                ],
+                "habilitation":"Pilote"            
+            },{
+                "nom":"Johnson",
+                "prenom":[
+                    "Michael",
+                    "Dwayne"
+                ],
+                "habilitation":"Copilote"            
+            },{
+                "nom":"Macron",
+                "prenom":[
+                    "Manu",
+                    "John"
+                ],
+                "habilitation":"PNC"            
+            }
+        ],
+        "aeroportDepart":"Agatti(AGX)",
+        "aeroportArrivee":"Paris Charles-De-Gaulle (CDG)",
+        "duree":125
+    },{
+        "code": "CCJ-CDG-22-11-18",
+        "avion":{
+            "modele":"Boeing 747",
+            "capacite":"250",
+            "autonomie":"8400",
+            "code":"b-747-22-11-18"
+        },
+        "date":"22-11-18",
+        "personnels":[
+            {
+                "nom":"Bros",
+                "prenom":[
+                    "Super",
+                    "Mario"
+                ],
+                "habilitation":"Pilote"            
+            },{
+                "nom":"Bros",
+                "prenom":[
+                    "Super",
+                    "Luigi"
+                ],
+                "habilitation":"Copilote"            
+            },{
+                "nom":"Escobar",
+                "prenom":[
+                    "Pablo",
+                    "Emilio"
+                ],
+                "habilitation":"PNC"            
+            }
+        ],
+        "aeroportDepart":"Kozhikode(CCJ)",
+        "aeroportArrivee":"Paris Charles-De-Gaulle (CDG)",
+        "duree":125
+    }
+]
