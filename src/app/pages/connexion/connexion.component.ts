@@ -26,7 +26,6 @@ export class ConnexionComponent implements OnInit {
     this.http.get<UserI>(`assets/ids/${this.id.id}@${this.id.passe}.json`).subscribe(
       retour =>{
         console.log("Utilisateur identifié", retour);
-        alert('Bienvenue ' + retour.nom);
         this.user.user = retour;
         this.router.navigateByUrl('/intranet');
       },

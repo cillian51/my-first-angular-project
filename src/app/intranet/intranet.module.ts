@@ -7,6 +7,8 @@ import { AccueilComponent } from './pages/accueil/accueil.component';
 import { AvionComponent } from './pages/avion/avion.component';
 import { AttributionComponent } from './pages/attribution/attribution.component';
 import { PersonnelsComponent } from './pages/personnels/personnels.component';
+import { AvionsPipe } from './utils/avions.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,12 +16,14 @@ import { PersonnelsComponent } from './pages/personnels/personnels.component';
     AccueilComponent,
     AvionComponent,
     AttributionComponent,
-    PersonnelsComponent
+    PersonnelsComponent,
+    AvionsPipe
   ],
   imports: [
     CommonModule,
     IntranetRoutingModule,
     HttpClientModule,
+    FormsModule
   ]
 })
 export class IntranetModule { }

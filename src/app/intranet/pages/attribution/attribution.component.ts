@@ -8,6 +8,9 @@ import { CompagnieService } from '../../services/compagnie.service';
 })
 export class AttributionComponent implements OnInit {
 
+  //Paramètre pour filtrer les modèles
+  filtreModele:string='';
+
   constructor(public compagnie:CompagnieService) { }
 
   ngOnInit(): void {

@@ -45,3 +45,22 @@ form{
 form > * {
     margin : 5px auto;
 }
+
+input {
+    border:solid 1px orange;
+}
+input.ng-valid{
+    border-bottom: solid 1px green;
+}
+
+input.ng-invalid{
+    border-bottom: solid 1px red;
+}
+
+input.ng-untouched{
+    background-color:rgba(255,0,0,.5);
+}
+
+input.ng-touched{
+    background-color:rgba(0,255,0,.5);
+}

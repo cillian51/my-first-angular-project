@@ -1,6 +1,7 @@
 <section> 
     <h3>Liste des vols dont le personnel doit être attribué</h3>
     <article >
+        <input [(ngModel)]="filtreModele" name="filtre"> 
         <table>
             <thead>
                 <tr>
@@ -13,7 +14,7 @@
                     <td>Personnel déjà attribué</td>
                 </tr>
             </thead>
-            <tr *ngFor= "let v of compagnie.vols">
+            <tr *ngFor= "let v of compagnie.vols | avions:filtreModele">
                 <td>{{v.code}}</td>
                 <td>{{v.avion.modele}}</td>
                 <td>{{v.date}}</td>

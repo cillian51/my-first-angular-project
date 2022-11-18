@@ -29,6 +29,9 @@ import { ProfilComponent } from './pages/profil/profil.component';
     FormsModule,
     HttpClientModule,
   ],
+  exports:[
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

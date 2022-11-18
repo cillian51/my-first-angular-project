@@ -4,13 +4,14 @@ import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { MentionsComponent } from './pages/mentions/mentions.component';
 import { ErreurRouteComponent } from './pages/erreur-route/erreur-route.component';
 import { ProfilComponent } from './pages/profil/profil.component';
+import { AuthGuard } from './securite/auth.guard';
 
 const routes: Routes = [
   {path :'', component:ConnexionComponent},
   {path :'mention' , component:MentionsComponent},
   {path :'profil' , component:ProfilComponent},
   {path :'profil/:cequonveut' , component:ProfilComponent},
-  {path :'intranet', loadChildren: () => import('./intranet/intranet.module').then(m => m.IntranetModule)},
+  {path :'intranet', loadChildren: () => import('./intranet/intranet.module').then(m => m.IntranetModule), canActivate:[AuthGuard], canLoad:[AuthGuard]},
 
   {path:'**', component:ErreurRouteComponent},
 ];
