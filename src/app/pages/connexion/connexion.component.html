@@ -1,11 +1,11 @@
 <section>
     <h2> Se connecter</h2>
     <h3> Vous devez être connecté pour gérer les vols</h3>
-    <form>
+    <form (submit)="checkId()">
         <label>Identifiant</label>
-        <input name="id" placeholder="Saisissez votre identifiant">
+        <input name="id" [(ngModel)]="id.id" (input)="logId()" required placeholder="Saisissez votre identifiant">
         <label>Mot de passe</label>
-        <input name="passe">
+        <input name="passe" type="password" [(ngModel)]="id.passe" required placeholder="Saisissez votre mot de passe">
         <input type="submit" value="Connexion">
         <input type="reset" value="Annuler">
     </form>
