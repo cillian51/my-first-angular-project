@@ -11,6 +11,7 @@ import { MentionsComponent } from './pages/mentions/mentions.component';
 import { ErreurRouteComponent } from './pages/erreur-route/erreur-route.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { ProfilComponent } from './pages/profil/profil.component';
+import { EditionProfilComponent } from './pages/edition-profil/edition-profil.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ProfilComponent } from './pages/profil/profil.component';
     MentionsComponent,
     ErreurRouteComponent,
     FooterComponent,
-    ProfilComponent
+    ProfilComponent,
+    EditionProfilComponent
   ],
   imports: [
     BrowserModule,

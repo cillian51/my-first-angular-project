@@ -1,0 +1,11 @@
+<section>
+    <h1>{{pagesServ.contenu.profil.titre}}</h1>
+    <form (submit)="changeProfil()" (reset)="retourProfil()">
+        <label for="nom">Nom:</label>
+        <input type="text"  id="nom" name="nom" value={{pagesServ.contenu.profil.nom}}><br><br>
+        <label for="prenom">Prénom:</label>
+        <input type="text"  id="prenom" name="prenom" value={{pagesServ.contenu.profil.prenom}}><br><br>
+        <input type="submit" value="Modifier">
+        <input type="reset" value="Annuler">
+    </form>
+</section>

@@ -7,22 +7,23 @@ import { ContenusI, PagesI, PagesProfil } from '../modeles/pages-i';
 })
 export class PagesService {
 
-  mentions:PagesI = {
-    titre:"Mentions Légales",
-    contenu :"Ces mentions ne servent à rien parce que c'est un cours et que de toute façon tout est partagé."
-  };
-
-  pages:ContenusI = <ContenusI>{};
-
-  profil:PagesProfil = {
-    titre: "Profil de l'utilisateur",
-    nom: "Dupont",
-    prenom:"Tintin"
-  }
-
   constructor(private readonly http:HttpClient) { 
     this.getPages();
   }
+  // mentions:PagesI = {
+  //   titre:"Mentions Légales",
+  //   contenu :"Ces mentions ne servent à rien parce que c'est un cours et que de toute façon tout est partagé."
+  // };
+
+  contenu:ContenusI = <ContenusI>{};
+
+  // profil:PagesProfil = {
+  //   titre: "Profil de l'utilisateur",
+  //   nom: "Dupont",
+  //   prenom:"Tintin"
+  // }
+
+  
 
   /**
    * Renvoie une chaîne tronquée
@@ -47,7 +48,7 @@ export class PagesService {
     });*/
     this.http.get<ContenusI>('assets/data/pages.json').subscribe(p =>{
       console.log('Données: ', p);
-      this.pages = p;
+      this.contenu = p;
     });
   }
 }

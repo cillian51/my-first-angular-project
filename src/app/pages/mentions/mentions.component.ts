@@ -11,7 +11,7 @@ export class MentionsComponent implements OnInit {
   constructor(public pagesServ:PagesService) { }
 
   ngOnInit(): void {
-    console.log(this.pagesServ.mentions);
+    console.log(this.pagesServ.contenu.mentions);
   };
 
 }

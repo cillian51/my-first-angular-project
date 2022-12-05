@@ -1,0 +1,10 @@
+a{
+    font-size:80%;
+    color:red;
+}
+
+nav {
+    position: absolute;
+    right: 100px;
+    top: 10px;
+}
