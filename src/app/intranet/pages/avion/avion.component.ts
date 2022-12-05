@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AvionI } from '../../modeles/compagnie-i';
 import { CompagnieService } from '../../services/compagnie.service';
 
 @Component({
@@ -8,9 +9,27 @@ import { CompagnieService } from '../../services/compagnie.service';
 })
 export class AvionComponent implements OnInit {
 
+  /** Avion sélectionné depuis le code */
+  avion:AvionI =<AvionI>{};
+
   constructor(public volServ:CompagnieService) { }
 
   ngOnInit(): void {
+  }
+
+  selectAvion(code:string|number){
+    // ! veut dire qu'il ne faut pas consider undefined
+    this.avion = this.volServ.avions.find(av=> av.code == code)!;
+  }
+
+  /** Mettre a jour notre avion */
+  updateAvion(){
+    console.log("L'avion va être mis à jour ici :");
+  }
+
+  /** Annuler la sélection sur un avion */
+  resetAvion(){
+    this.avion = <AvionI>{};
   }
 
 }

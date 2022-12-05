@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "my-first-angular-project-f55c8": {
+      "hosting": {
+        "my-first-project": [
+          "my-first-angular-project-f55c8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "my-first-angular-project-f55c8"
+  }
+}

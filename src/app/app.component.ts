@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-first-project';
-  subtitle:string = 'le projet de ses morts';
+  subtitle:string = 'Mon premier projet';
   avions:Array<string> =[
     'A-320', 
     'Boeing 747',
