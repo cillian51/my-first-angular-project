@@ -12,8 +12,7 @@ import { AuthService } from './auth.service';
 export class PagesService {
 
   constructor(private readonly http: HttpClient, private bdd: Firestore) {
-    this.getPages();
-    this.getFireProfil();
+    // this.getPages();
   }
   // mentions:PagesI = {
   //   titre:"Mentions Légales",
@@ -58,20 +57,6 @@ export class PagesService {
   //   });
   // };
 
-  async getFireProfil() {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    if (user !== null) {
-      const docProfil = doc(this.bdd, 'profil', user.email as string);
-      await getDoc(docProfil).then(doc => {
-        this.profil = doc.data() as UserI
-      });
-    }
-  }
 
-  async updateFireProfil(code:string, data:UserI){
-    const docProfil = doc(this.bdd, 'profil', code);
-    await setDoc(docProfil, data, {merge:true});
-  }
 
 }

@@ -1,10 +1,10 @@
 <section>
-    <h1>{{pagesServ.contenu.profil.titre}}</h1>
-    <form (submit)="updateProfil()" (reset)="retourProfil()">
+    <h1> Modification du profil utilisateur </h1>
+    <form class="profil_edition" (submit)="weirdUpdate()" (reset)="retourProfil()">
         <label >Nom:</label>
-        <input type="text"  name="nom" [(ngModel)]="pagesServ.profil.nom"><br><br>
+        <input class ="p-inputtext" type="text"  name="nom" [(ngModel)]="user.user.nom"><br><br>
         <label >Prénom:</label>
-        <input type="text"  name="prenom" [(ngModel)]="pagesServ.profil.prenom"><br><br>
+        <input class ="p-inputtext" type="text"  name="prenom" [(ngModel)]="user.user.prenom"><br><br>
         <label >Téléphone :</label>
         <input type="submit" value="Modifier">
         <input type="reset" value="Annuler">
