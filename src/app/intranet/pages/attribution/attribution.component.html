@@ -1,11 +1,10 @@
 <nav>
     <a routerLink="edition" href>Éditer vols</a>
 </nav>
-<section>
+<section> 
     <h3>Liste des vols dont le personnel doit être attribué</h3>
-    <article>
-        <input type="text" placeholder="Rechercher avion" class="form-control"
-            [(ngModel)]="filtreModele" name="filtre">
+    <article >
+        <input [(ngModel)]="filtreModele" name="filtre"> 
         <table>
             <thead>
                 <tr>
@@ -18,7 +17,7 @@
                     <td>Personnel déjà attribué</td>
                 </tr>
             </thead>
-            <tr *ngFor="let v of compagnie.vols | avions:filtreModele">
+            <tr *ngFor= "let v of compagnie.vols | avions:filtreModele">
                 <td>{{v.code}}</td>
                 <td>{{v.avion.modele}}</td>
                 <td>{{v.date}}</td>
@@ -27,7 +26,7 @@
                 <td>{{v.aeroportArrivee}}</td>
                 <td>
                     <ul>
-                        <li *ngFor="let p of v.personnels">{{p.nom | uppercase}} {{p.prenom}} ({{p.habilitation}})</li>
+                        <li *ngFor= "let p of v.personnels">{{p.nom | uppercase}} {{p.prenom}} ({{p.habilitation}})</li>
                     </ul>
                 </td>
             </tr>
