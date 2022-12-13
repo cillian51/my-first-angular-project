@@ -1,10 +1,11 @@
 <section>
     <h1>{{pagesServ.contenu.profil.titre}}</h1>
-    <form (submit)="changeProfil()" (reset)="retourProfil()">
-        <label for="nom">Nom:</label>
-        <input type="text"  id="nom" name="nom" value={{pagesServ.contenu.profil.nom}}><br><br>
-        <label for="prenom">Prénom:</label>
-        <input type="text"  id="prenom" name="prenom" value={{pagesServ.contenu.profil.prenom}}><br><br>
+    <form (submit)="updateProfil()" (reset)="retourProfil()">
+        <label >Nom:</label>
+        <input type="text"  name="nom" [(ngModel)]="pagesServ.profil.nom"><br><br>
+        <label >Prénom:</label>
+        <input type="text"  name="prenom" [(ngModel)]="pagesServ.profil.prenom"><br><br>
+        <label >Téléphone :</label>
         <input type="submit" value="Modifier">
         <input type="reset" value="Annuler">
     </form>

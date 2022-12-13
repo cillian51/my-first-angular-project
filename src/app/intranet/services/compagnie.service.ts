@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { collection, Firestore, getDocs, doc, deleteDoc, getDoc, setDoc } from '@angular/fire/firestore';
+import { BehaviorSubject } from 'rxjs';
 import { AvionI, PersonnelsI, VolI } from '../modeles/compagnie-i';
 
 @Injectable({
@@ -8,15 +10,19 @@ import { AvionI, PersonnelsI, VolI } from '../modeles/compagnie-i';
 export class CompagnieService {
 
   
-  constructor(private readonly http:HttpClient) { 
+  constructor(private readonly http:HttpClient, private bdd:Firestore) { 
     this.getVols();
-    this.getAvions();
-    this.getPersonnels();
+    this.getFireAvs();
+    this.getFirePersos();
   }
 
   vols:Array<VolI> = [];
   avions:Array<AvionI>=[];
-  personnels:Array<PersonnelsI> = [];
+  personnels:Array<{id:string,data:PersonnelsI}> = [];
+  listeAvions!:{id:string, data:Array<AvionI>};
+
+  // Création d'un observable pour synchroniser les données
+  personnels$:BehaviorSubject<Array<{id:string,data:PersonnelsI}>> = new BehaviorSubject(<Array<{id:string,data:PersonnelsI}>>[]);
 
   /** Récupérer le contenu des vols depuis le fichier JSON */
 getVols(){
@@ -26,23 +32,65 @@ getVols(){
   });
 }
 
+
+/** 
+ * Récupération des avions depuis firebase 
+ */
+async getFireAvs(){
+  await getDocs(collection(this.bdd, 'avions'))
+  .then(av => {
+    console.log(av);
+    av.forEach(a=> {
+      console.log(a.id,a.data());
+      //this.listeAvions.push({id:a.id,data:a.data() as AvionI});
+      this.avions.push(a.data() as AvionI);
+    });
+  })
+  .catch(err => console.log("Erreur : ",err));
+}
+
 getAvions(){
   this.http.get<AvionI[]>('assets/data/avions.json').subscribe(a=>{
     this.avions = a;
   })
 }
 
-getPersonnels(){
-  this.http.get<PersonnelsI[]>('assets/data/personnels.json').subscribe({
-    next : (p) => {
-      this.personnels = p;
-    },
-    error : (e) => {
-      console.log('Error: ', e);
-    },
-    complete : () => {
-      console.log('Complete');
-    }
-  })
+/** Récuperer un avion grâce à son code */
+async getFireAvions(code:string){
+  const docAvion = doc(this.bdd, 'avions', code);
+  await getDoc(docAvion);
 }
+
+/** Récuperer un avion grâce à son code */
+async delFireAvions(code:string){
+  const docAvion = doc(this.bdd, 'avions', code);
+  await deleteDoc(docAvion);
+}
+
+/** Update un avion grâce à son code et les data*/
+async updateFireAvions(code:string, data:AvionI){
+  const docAvion = doc(this.bdd, 'avions', code);
+  await setDoc(docAvion, data, {merge:true});
+}
+
+async getFirePersos(){
+  await getDocs(collection(this.bdd, 'personnels'))
+  .then(perso => {
+    console.log(perso);
+    perso.forEach(a=> {
+      console.log(a.id,a.data());
+      this.personnels.push({id:a.id,data:a.data() as PersonnelsI});
+    });
+    //Envoyer des données à l'observable
+    this.personnels$.next(this.personnels);
+  })
+  .catch(err => console.log("Erreur : ",err));
+}
+
+async addFirePersos(code: string,data:PersonnelsI){
+  const docPersos = doc(this.bdd, 'personnels', code);
+  await setDoc(docPersos, data, {merge:true});
+}
+
+
 }

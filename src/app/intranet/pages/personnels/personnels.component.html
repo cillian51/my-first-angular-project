@@ -14,10 +14,15 @@
             </thead>
             <tbody *ngFor= "let p of compagnie.personnels">
             <tr>
-                    <td>{{p.nom | uppercase}}</td>
-                    <td>{{p.prenom}}</td>
-                    <td>{{p.habilitation}}</td>
+                    <td>{{p.data.nom | uppercase}}</td>
+                    <td>{{p.data.prenom}}</td>
+                    <td>{{p.data.habilitation}}</td>
             </tr>
+            <!-- <tr *ngFor="let p of compagnie.personnels$ | async">
+                <td>{{  p.data.nom }}</td>
+                <td>{{  p.data.prenom.join() }}</td>
+                <td>{{  p.data.habilitation }}</td>
+            </tr> -->
             </tbody>
         </table>
     </article>

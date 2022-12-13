@@ -16,18 +16,13 @@ export class EditionPersonnelComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addPersonnel(){
-    this.http.get<PersonnelsI>(`assets/data/vols.json`).subscribe(
-      retour =>{
+  personnel:PersonnelsI =<PersonnelsI>{};
 
-        console.log("Nouveau personnel ", retour);
-        this.router.navigateByUrl('/intranet/personnels');
-      },
-      erreur =>{
-        console.log("Error");
-        alert('Erreur '+JSON.stringify(erreur))
-      }
-    )
+   /** Mettre a jour notre avion */
+   addPerso(){
+    console.log("Le personnel va être mis à jour ici :");
+    this.compagnie.addFirePersos(this.personnel.nom as string + "-" + this.personnel.prenom[0], this.personnel);
+    this.router.navigateByUrl('/intranet/personnels');
   }
 
 }

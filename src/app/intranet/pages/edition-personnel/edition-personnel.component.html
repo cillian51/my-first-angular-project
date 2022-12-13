@@ -1,12 +1,16 @@
 <section>
     <h1>Ajout de personnel </h1>
-    <form (submit)="addPersonnel()">
+    <form (submit)="addPerso()">
         <label for="nom">Nom :</label>
-        <input type="text"  id="nom" name="nom" placeholder="Saisissez le nom"><br><br>
+        <input type="text"  [(ngModel)]="personnel.nom" id="nom" name="nom" placeholder="Saisissez le nom"><br><br>
         <label for="prenom">Prénom :</label>
-        <input type="text"  id="prenom" name="prenom" placeholder="Saisissez le prénom"><br><br>
+        <input type="text" [(ngModel)]="personnel.prenom"  id="prenom" name="prenom" placeholder="Saisissez le prénom"><br><br>
         <label for="prenom">Habilitation :</label>
-        <input type="text"  id="habilitation" name="habilitation" placeholder="Saisissez l'habilitation"><br><br>
+        <select [(ngModel)]="personnel.habilitation" name="habilitation">
+            <option ng-selected="true">Pilote</option>
+            <option>Copilote</option>
+            <option >PNC</option>
+        </select>
         <input type="submit" value="Modifier">
         <input type="reset" value="Annuler">
     </form>

@@ -13,7 +13,6 @@ export class ProfilComponent implements OnInit {
   constructor(public pages:PagesService) { }
 
   ngOnInit(): void {
-    console.log(this.pages.contenu.profil);
   }
 
 }

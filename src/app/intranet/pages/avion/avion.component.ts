@@ -25,6 +25,7 @@ export class AvionComponent implements OnInit {
   /** Mettre a jour notre avion */
   updateAvion(){
     console.log("L'avion va être mis à jour ici :");
+    this.volServ.updateFireAvions(this.avion.code as string, this.avion);
   }
 
   /** Annuler la sélection sur un avion */

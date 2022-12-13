@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContenusI, PagesProfil } from 'src/app/modeles/pages-i';
 import { PagesService } from 'src/app/services/pages.service';
+import { Auth, updateProfile } from "@angular/fire/auth";
 
 @Component({
   selector: 'app-edition-profil',
@@ -11,27 +12,22 @@ import { PagesService } from 'src/app/services/pages.service';
 })
 export class EditionProfilComponent implements OnInit {
 
-  constructor(public pagesServ:PagesService, private router:Router, private http:HttpClient) { }
+  constructor(public pagesServ:PagesService, private router:Router, private http:HttpClient, public auth:Auth) { }
 
 
   ngOnInit(): void {
     console.log(this.pagesServ.contenu.profil);
   }
 
-  changeProfil(){
-    this.http.get<ContenusI>(`assets/data/pages.json`).subscribe(
-      retour =>{
-        //Ne fonctionne pas avec le fichier json
-        // retour.profil.nom = this.pagesServ.contenu.profil.nom;
-        // retour.profil.prenom= this.pagesServ.contenu.profil.prenom;
-        console.log("Profil modifié", retour);
-        this.router.navigateByUrl('/profil');
-      },
-      erreur =>{
-        console.log("Error");
-        alert('Erreur '+JSON.stringify(erreur))
-      }
-    )
+  
+  /** Mettre a jour notre profil */
+  updateProfil(){
+    updateProfile(this.auth.currentUser!, {displayName : this.pagesServ.profil.nom})
+    .then(r => console.log("Les données ont été mises à jour"))
+    .catch(err => console.log(err));
+    this.pagesServ.updateFireProfil(this.pagesServ.profil.uid as string, this.pagesServ.profil);
+    this.router.navigateByUrl('/profil');
+    
   }
 
   retourProfil(){

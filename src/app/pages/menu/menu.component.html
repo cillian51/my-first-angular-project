@@ -1,3 +1,4 @@
-<nav *ngIf="user.user.statut">
+<nav *ngIf="user.user.statut || auth.currentUser">
     <a routerLink="profil" href>Mon profil</a>
+    <a routerLink="/intranet" href>Intranet</a>
 </nav>
