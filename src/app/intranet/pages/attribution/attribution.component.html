@@ -17,16 +17,16 @@
                     <td>Personnel déjà attribué</td>
                 </tr>
             </thead>
-            <tr *ngFor= "let v of compagnie.vols | avions:filtreModele">
-                <td>{{v.code}}</td>
-                <td>{{v.avion.modele}}</td>
-                <td>{{v.date}}</td>
-                <td>{{v.duree}}</td>
-                <td>{{v.aeroportDepart}}</td>
-                <td>{{v.aeroportArrivee}}</td>
+            <tr *ngFor= "let v of compagnie.listeVols | vols:filtreModele">
+                <td>{{v.data.code}}</td>
+                <td>{{v.data.avion.code | modele:compagnie.listeAvions}}</td>
+                <td>{{v.data.date}}</td>
+                <td>{{v.data.duree}}</td>
+                <td>{{v.data.aeroportDepart}}</td>
+                <td>{{v.data.aeroportArrivee}}</td>
                 <td>
                     <ul>
-                        <li *ngFor= "let p of v.personnels">{{p.nom | uppercase}} {{p.prenom}} ({{p.habilitation}})</li>
+                        <li *ngFor= "let p of v.data.personnels">{{p.nom | uppercase}} {{p.prenom}} ({{p.habilitation}})</li>
                     </ul>
                 </td>
             </tr>

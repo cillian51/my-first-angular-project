@@ -5,7 +5,7 @@ export interface AvionI{
     modele:string;
     capacite:number;
     autonomie:number;
-    code:string|number;
+    code:string;
 }
 
 export interface PersonnelsI{
@@ -16,7 +16,7 @@ export interface PersonnelsI{
 }
 
 export interface VolI {
-    code:string|number;
+    code:string;
     avion:AvionI;
     date:Date;
     personnels:Array<PersonnelsI>;
