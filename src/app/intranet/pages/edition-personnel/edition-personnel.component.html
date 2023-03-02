@@ -1,6 +1,6 @@
 <section>
     <h1>Ajout de personnel </h1>
-    <form (submit)="addPerso()">
+    <form (submit)="addPerso()" (reset)="retourPersonnel()">
         <label for="nom">Nom :</label>
         <input type="text"  [(ngModel)]="personnel.nom" id="nom" name="nom" placeholder="Saisissez le nom"><br><br>
         <label for="prenom">Prénom :</label>
@@ -11,7 +11,7 @@
             <option>Copilote</option>
             <option >PNC</option>
         </select>
-        <input type="submit" value="Modifier">
+        <input type="submit" value="Ajouter">
         <input type="reset" value="Annuler">
     </form>
 </section>

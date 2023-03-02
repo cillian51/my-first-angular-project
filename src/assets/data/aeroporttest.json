@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1141,
+        "nameEn": "Aalborg Airport",
+        "nameFr": "Aalborg Airport",
+        "iata": "AAL",
+        "active": true,
+        "acceptingComplaints": true,
+        "latitude": "57.09275891",
+        "longitude": "9.849243164",
+        "elevationFeet": 10,
+        "website": "http://www.aal.dk",
+        "wikipediaLink": "https://en.wikipedia.org/wiki/Aalborg_Airport",
+        "cityId": 44710,
+        "city": {
+            "id": 44710,
+            "nameEn": "Aalborg",
+            "nameFr": "Aalborg",
+            "countryId": 63,    
+            "country": {
+                "id": 63,
+                "nameEn": "Denmark",
+                "nameFr": "Danemark"
+            }
+        },
+        "country": null
+    },
+    {
+        "id": 1142,
+        "nameEn": "Aarhus Airport",
+        "nameFr": "Aarhus Airport",
+        "iata": "AAR",
+        "active": true,
+        "acceptingComplaints": true,
+        "latitude": "56.29999924",
+        "longitude": "10.61900043",
+        "elevationFeet": 82,
+        "website": "http://www.aar.dk/default.asp?id=87",
+        "wikipediaLink": "https://en.wikipedia.org/wiki/Aarhus_Airport",
+        "cityId": 44711,
+        "city": {
+            "id": 44711,
+            "nameEn": "Aarhus",
+            "nameFr": "Aarhus",
+            "countryId": 63,
+            "country": {
+                "id": 63,
+                "nameEn": "Denmark",
+                "nameFr": "Danemark"
+            }
+        },
+        "country": null
+    },
+    {
+        "id": 1143,
+        "nameEn": "Aasiaat Airport",
+        "nameFr": "Aasiaat Airport",
+        "iata": "JEG",
+        "active": true,
+        "acceptingComplaints": true,
+        "latitude": "68.72180176",
+        "longitude": "-52.78469849",
+        "elevationFeet": 74,
+        "website": null,
+        "wikipediaLink": "https://en.wikipedia.org/wiki/Aasiaat_Airport",
+        "cityId": 44712,
+        "city": {
+            "id": 44712,
+            "nameEn": "Aasiaat",
+            "nameFr": "Aasiaat",
+            "countryId": 89,
+            "country": {
+                "id": 89,
+                "nameEn": "Greenland",
+                "nameFr": "Groenland"
+            }
+        },
+        "country": null
+    }
+]

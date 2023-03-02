@@ -25,4 +25,9 @@ export class EditionPersonnelComponent implements OnInit {
     this.router.navigateByUrl('/intranet/personnels');
   }
 
+  retourPersonnel() {
+    console.log("Modification du personnel annulée");
+    this.router.navigateByUrl('/intranet/personnels');
+  }
+
 }

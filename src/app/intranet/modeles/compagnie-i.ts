@@ -17,12 +17,18 @@ export interface PersonnelsI{
 
 export interface VolI {
     code:string;
-    avion:AvionI;
-    date:Date;
-    personnels:Array<PersonnelsI>;
+    avion:string;
+    date:any;
+    personnels:Array<String>;
     aeroportDepart:string;
     aeroportArrivee:string;
     duree:number;
+}
+
+export interface AeroportI{
+    nom:string;
+    code:string;
+    ville:string;
 }
 
 enum HabilitationsE {

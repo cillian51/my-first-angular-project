@@ -1,3 +1,6 @@
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+
 /* You can add global styles to this file, and also import other style files */
 html, body{
     width: 100%;
@@ -64,3 +67,5 @@ input.ng-untouched{
 input.ng-touched{
     background-color:rgba(0,255,0,.5);
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

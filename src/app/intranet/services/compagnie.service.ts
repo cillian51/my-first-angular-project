@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { collection, Firestore, getDocs, doc, deleteDoc, getDoc, setDoc } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
-import { AvionI, PersonnelsI, VolI } from '../modeles/compagnie-i';
+import { AeroportI, AvionI, PersonnelsI, VolI } from '../modeles/compagnie-i';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +12,14 @@ export class CompagnieService {
 
   constructor(private readonly http: HttpClient, private bdd: Firestore) {
     // this.getVols();
-    this.getFireAvs();
+    //this.getFireAvs();
     this.getFirePersos();
+    this.getAeroports();
   }
 
   // vols: Array<VolI> = [];
   avions: Array<AvionI> = [];
+  aeroports:Array<AeroportI>=[];
   personnels: Array<{ id: string, data: PersonnelsI }> = [];
   listeAvions: Array<{ id: string, data: AvionI }> =[];
   listeVols: Array<{ id: string, data:VolI }> = [];
@@ -25,13 +27,21 @@ export class CompagnieService {
   // Création d'un observable pour synchroniser les données
   personnels$: BehaviorSubject<Array<{ id: string, data: PersonnelsI }>> = new BehaviorSubject(<Array<{ id: string, data: PersonnelsI }>>[]);
 
-  /** Récupérer le contenu des vols depuis le fichier JSON */
-  // getVols() {
-  //   this.http.get<VolI[]>('assets/data/vols.json').subscribe(v => {
-  //     console.log('Données: ', v);
-  //     this.vols = v;
-  //   });
-  // }
+  /** Récupérer le contenu des aéroports depuis le fichier JSON */
+  getAeroports() {
+    this.http.get<AeroportI[]>('assets/data/aeroport.json').subscribe(a => {
+      console.log('Données: ', a);
+      a.forEach((element:any) => {
+        const aeroport : AeroportI = {
+          nom : element.nameFr,
+          code : element.iata,
+          ville : element.city.nameFr,
+        };
+        this.aeroports.push(aeroport);
+      });
+      console.log("aeroport :",this.aeroports);
+    });
+  }
 
   /** Récupération des vols depuis firebase */
   async getFireVols(){
@@ -55,12 +65,12 @@ export class CompagnieService {
   async getFireAvs() {
     await getDocs(collection(this.bdd, 'avions'))
       .then(av => {
-        this.listeAvions = [];
+        //this.listeAvions = [];
         console.log(av);
         av.forEach(a => {
           console.log(a.id, a.data());
           this.listeAvions.push({id:a.id,data:a.data() as AvionI});
-          // this.avions.push(a.data() as AvionI);
+          //this.avions.push(a.data() as AvionI);
         });
       })
       .catch(err => console.log("Erreur : ", err));
@@ -75,7 +85,7 @@ export class CompagnieService {
   /** Récuperer un avion grâce à son code */
   async getFireAvions(code: string) {
     const docAvion = doc(this.bdd, 'avions', code);
-    return getDoc(docAvion);
+    return await getDoc(docAvion);
   }
 
   /** Récuperer un avion grâce à son code */
@@ -106,8 +116,15 @@ export class CompagnieService {
       .catch(err => console.log("Erreur : ", err));
   }
 
+  /** Récuperer un avion grâce à son code */
+  async getFirePersonnels(code: string) {
+    const docPersonnel = doc(this.bdd, 'personnels', code);
+    return await getDoc(docPersonnel);
+  }
+
   async addFirePersos(code: string, data: PersonnelsI) {
     const docPersos = doc(this.bdd, 'personnels', code);
+    this.personnels.push({ id: code, data: data as PersonnelsI });
     await setDoc(docPersos, data, { merge: true });
   }
 

@@ -1,0 +1,26 @@
+<div class="aeroports-container">
+    <div class="column">
+      <mat-card *ngFor="let aeroport of aeroports.slice(paginator.pageIndex * pageSize, (paginator.pageIndex + 1) * pageSize)">
+        <mat-card-header>
+          <mat-card-title>{{ aeroport.nom }}</mat-card-title>
+          <mat-card-subtitle>{{ aeroport.code }}</mat-card-subtitle>
+          <mat-card-subtitle>{{ aeroport.ville }}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    <div class="column">
+      <mat-card *ngFor="let aeroport of aeroports.slice((paginator.pageIndex + 1) * pageSize, (paginator.pageIndex + 2) * pageSize)">
+        <mat-card-header>
+          <mat-card-title>{{ aeroport.nom }}</mat-card-title>
+          <mat-card-subtitle>{{ aeroport.code }}</mat-card-subtitle>
+          <mat-card-subtitle>{{ aeroport.ville }}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
+  
+  <mat-paginator [length]="aeroports.length" [pageSize]="pageSize" [hidePageSize]="true"
+    (page)="onPageChange($event)"></mat-paginator>
+  
+
+  

@@ -10,12 +10,12 @@
                     <td><strong>Autonomie</strong></td>
                 </tr>
             </thead>
-            <tbody *ngFor="let a of volServ.avions" (click)="selectAvion(a.code)">
+            <tbody *ngFor="let a of volServ.listeAvions" (click)="selectAvion(a.data.code)">
                 <tr>
-                    <td>{{a.code}}</td>
-                    <td>{{a.modele}}</td>
-                    <td>{{a.capacite}}</td>
-                    <td>{{a.autonomie}}</td>
+                    <td>{{a.data.code}}</td>
+                    <td>{{a.data.modele}}</td>
+                    <td>{{a.data.capacite}}</td>
+                    <td>{{a.data.autonomie}}</td>
                 </tr>
             </tbody>
         </table>
@@ -23,12 +23,12 @@
 </section>
 
 <section>
-    <h3>Liste des avions disponibles !</h3>
+    <h3>Modification de l'avion sélectionné !</h3>
     <form (submit)="updateAvion()" #f="ngForm" *ngIf="avion">
-        <input [(ngModel)]="avion.modele" name="modele">
-        <input [(ngModel)]="avion.capacite" type="number" name="capacite">
-        <input [(ngModel)]="avion.autonomie" type="number" name="autonomie">
-        <input [(ngModel)]="avion.code" name="code">
+        <input [(ngModel)]="avion.data.modele" name="modele">
+        <input [(ngModel)]="avion.data.capacite" type="number" name="capacite">
+        <input [(ngModel)]="avion.data.autonomie" type="number" name="autonomie">
+        <input [(ngModel)]="avion.data.code" name="code">
         <input type="submit" value="Valider" >
         <input type="reset" value="Annuler" (click)="resetAvion()">
     </form>

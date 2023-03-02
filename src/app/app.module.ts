@@ -21,6 +21,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     NgbModule,
+    BrowserAnimationsModule,
   ],
   exports:[
     FormsModule,

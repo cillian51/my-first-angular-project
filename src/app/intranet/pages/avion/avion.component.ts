@@ -10,7 +10,7 @@ import { CompagnieService } from '../../services/compagnie.service';
 export class AvionComponent implements OnInit {
 
   /** Avion sélectionné depuis le code */
-  avion:AvionI =<AvionI>{};
+  avion:{ id: string, data: AvionI } =<{ id: string, data: AvionI }>{};
 
   constructor(public volServ:CompagnieService) { }
 
@@ -19,18 +19,18 @@ export class AvionComponent implements OnInit {
 
   selectAvion(code:string|number){
     // ! veut dire qu'il ne faut pas consider undefined
-    this.avion = this.volServ.avions.find(av=> av.code == code)!;
+    this.avion = this.volServ.listeAvions.find(av=> av.data.code == code)!;
   }
 
   /** Mettre a jour notre avion */
   updateAvion(){
     console.log("L'avion va être mis à jour ici :");
-    this.volServ.updateFireAvions(this.avion.code as string, this.avion);
+    this.volServ.updateFireAvions(this.avion.id as string, this.avion.data);
   }
 
   /** Annuler la sélection sur un avion */
   resetAvion(){
-    this.avion = <AvionI>{};
+    this.avion = <{ id: string, data: AvionI }>{};
   }
 
 }
