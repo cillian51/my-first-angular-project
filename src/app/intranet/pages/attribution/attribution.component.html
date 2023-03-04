@@ -19,14 +19,16 @@
             </thead>
             <tr *ngFor= "let v of compagnie.listeVols | vols:filtreModele">
                 <td>{{v.data.code}}</td>
-                <td>{{v.data.avion| modele | async}}</td>
-                <td>{{v.data.date.toDate() | date:'yyyy/MM/dd h:mm:ss a'}}</td>
+                <td>{{v.data.avion}}</td>
+                <td>{{v.data.date}}</td>
                 <td>{{v.data.duree * 1000 * 60| date:'HH:mm':'UTC'}}</td>
                 <td>{{v.data.aeroportDepart}}</td>
                 <td>{{v.data.aeroportArrivee}}</td>
                 <td>
                     <ul>
-                        <li *ngFor= "let p of v.data.personnels">{{p.toString() | personnel | async}}</li>
+                        <li>{{v.data.pilote }} (Pilote)</li>
+                        <li>{{v.data.copilote }} (Copilote)</li>
+                        <li>{{v.data.pnc }} (PNC)</li>
                     </ul>
                 </td>
             </tr>

@@ -19,10 +19,12 @@ export interface VolI {
     code:string;
     avion:string;
     date:any;
-    personnels:Array<String>;
     aeroportDepart:string;
     aeroportArrivee:string;
     duree:number;
+    pilote:string;
+    copilote:string;
+    pnc:string;
 }
 
 export interface AeroportI{

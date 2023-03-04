@@ -21,7 +21,7 @@ export class EditionPersonnelComponent implements OnInit {
    /** Mettre a jour notre avion */
    addPerso(){
     console.log("Le personnel va être mis à jour ici :");
-    this.compagnie.addFirePersos(this.personnel.nom as string + "-" + this.personnel.prenom[0], this.personnel);
+    this.compagnie.addFirePersos(this.personnel.nom as string + "-" + this.personnel.prenom, this.personnel);
     this.router.navigateByUrl('/intranet/personnels');
   }
 

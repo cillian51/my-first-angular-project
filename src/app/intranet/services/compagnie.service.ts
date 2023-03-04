@@ -20,6 +20,7 @@ export class CompagnieService {
   // vols: Array<VolI> = [];
   avions: Array<AvionI> = [];
   aeroports:Array<AeroportI>=[];
+  persos:Array<PersonnelsI> = [];
   personnels: Array<{ id: string, data: PersonnelsI }> = [];
   listeAvions: Array<{ id: string, data: AvionI }> =[];
   listeVols: Array<{ id: string, data:VolI }> = [];
@@ -59,6 +60,14 @@ export class CompagnieService {
     .catch(err => console.log("Erreur : ", err));
   }
 
+  /** Ajout du vol depuis firebase */
+  async addFireVols(code: string, data: VolI) {
+    const docVols = doc(this.bdd, 'vols', code);
+    this.listeVols.push({ id: code, data: data as VolI });
+    await setDoc(docVols, data, { merge: true });
+  }
+
+
   /** 
    * Récupération des avions depuis firebase 
    */
@@ -70,17 +79,17 @@ export class CompagnieService {
         av.forEach(a => {
           console.log(a.id, a.data());
           this.listeAvions.push({id:a.id,data:a.data() as AvionI});
-          //this.avions.push(a.data() as AvionI);
+          this.avions.push(a.data() as AvionI);
         });
       })
       .catch(err => console.log("Erreur : ", err));
   }
 
-  getAvions() {
-    this.http.get<AvionI[]>('assets/data/avions.json').subscribe(a => {
-      this.avions = a;
-    })
-  }
+  // getAvions() {
+  //   this.http.get<AvionI[]>('assets/data/avions.json').subscribe(a => {
+  //     this.avions = a;
+  //   })
+  // }
 
   /** Récuperer un avion grâce à son code */
   async getFireAvions(code: string) {
@@ -107,6 +116,7 @@ export class CompagnieService {
         perso.forEach(a => {
           console.log(a.id, a.data());
           this.personnels.push({ id: a.id, data: a.data() as PersonnelsI });
+          this.persos.push(a.data() as PersonnelsI);
         });
         this.getFireAvs();
         this.getFireVols();
@@ -116,7 +126,7 @@ export class CompagnieService {
       .catch(err => console.log("Erreur : ", err));
   }
 
-  /** Récuperer un avion grâce à son code */
+  /** Récuperer un personnel grâce à son code */
   async getFirePersonnels(code: string) {
     const docPersonnel = doc(this.bdd, 'personnels', code);
     return await getDoc(docPersonnel);

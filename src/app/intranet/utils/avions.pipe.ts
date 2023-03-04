@@ -34,22 +34,7 @@ export class VolsPipe implements PipeTransform {
 }
 
 
-/** récuperer les modeles des avions */
 
-@Pipe({
-  name: 'modele'
-})
-
-export class ModelePipe implements PipeTransform {
-  constructor(public compagnie:CompagnieService) { }
-  
-  async transform(avionId:string): Promise<any>{
-    const avion = await (await this.compagnie.getFireAvions(avionId)).data();
-    console.log(avion);
-    console.log(avion?.['modele']);
-    return avion?.['modele'];
-  }
-}
 
 /** récuperer le personnel pour le vol */
 
