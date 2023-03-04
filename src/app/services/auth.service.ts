@@ -13,13 +13,16 @@ export class AuthService {
 
   }
 
-
+  isLoggedIn = false;
+  
 
   identification(mail: string, mdp: string) {
     signInWithEmailAndPassword(this.auth, mail, mdp)
       .then(data => {
         console.log("Utilisateur connecté", data);
+        console.log("daeazez",this.user);
         this.user.getFireProfil(this.auth.currentUser!.uid);
+        this.isLoggedIn = true;
         this.router.navigateByUrl('/intranet');
       })
       .catch(err => console.log(err));

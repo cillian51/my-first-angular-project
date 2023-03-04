@@ -1,4 +1,4 @@
-<nav *ngIf="user.user.statut || auth.currentUser">
+<nav *ngIf="auth.isLoggedIn">
     <a routerLink="profil" href>Mon profil</a>
     <a routerLink="/intranet" href>Intranet</a>
 </nav>

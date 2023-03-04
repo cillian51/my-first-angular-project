@@ -10,27 +10,42 @@ import { CompagnieService } from '../../services/compagnie.service';
 export class AvionComponent implements OnInit {
 
   /** Avion sélectionné depuis le code */
-  avion:{ id: string, data: AvionI } =<{ id: string, data: AvionI }>{};
+  avion: AvionI  = <AvionI>{};
+  isEdition: boolean = false;
 
-  constructor(public volServ:CompagnieService) { }
+  constructor(public volServ: CompagnieService) { }
 
   ngOnInit(): void {
   }
 
-  selectAvion(code:string|number){
+  switchEdition() {
+    this.isEdition = !this.isEdition;
+    this.resetAvion();
+  }
+
+  selectAvion(code: string | number) {
     // ! veut dire qu'il ne faut pas consider undefined
-    this.avion = this.volServ.listeAvions.find(av=> av.data.code == code)!;
+    if (this.isEdition) {
+      this.avion = this.volServ.avions.find(av => av.code == code)!;
+    }
   }
 
   /** Mettre a jour notre avion */
-  updateAvion(){
+  updateAvion() {
     console.log("L'avion va être mis à jour ici :");
-    this.volServ.updateFireAvions(this.avion.id as string, this.avion.data);
+    this.volServ.updateFireAvions(this.avion.code as string, this.avion);
+  }
+
+  /** Ajouter notre avion */
+  addAvion() {
+    console.log("L'avion va être ajouter ici :");
+    this.volServ.addFireAvions(this.avion.code, this.avion);
+    this.resetAvion();
   }
 
   /** Annuler la sélection sur un avion */
-  resetAvion(){
-    this.avion = <{ id: string, data: AvionI }>{};
+  resetAvion() {
+    this.avion = <AvionI>{};
   }
 
 }

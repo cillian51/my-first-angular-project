@@ -1,8 +1,8 @@
 <section>
     <h1>Ajout de personnel </h1>
-    <form (submit)="addVol()">
+    <form (submit)="addVol()" (reset)="retourPersonnel()">
         <label for="nom">Aéroport de départ :</label>
-        <input type="text" placeholder="Choisissez la ville" [(ngModel)]="vol.aeroportDepart" matInput
+        <input type="text" placeholder="Choisissez la ville"matInput
             [formControl]="aeroportDepartControl" [matAutocomplete]="autoDepart">
         <mat-autocomplete #autoDepart>
             <mat-option *ngFor="let option of aeroportDepartFilteredOptions | async" [value]="option">
@@ -10,7 +10,7 @@
             </mat-option>
         </mat-autocomplete>
         <label for="prenom">Aéroport d'arrivée :</label>
-        <input type="text" placeholder="Choisissez la ville" [(ngModel)]="vol.aeroportArrivee" matInput
+        <input type="text" placeholder="Choisissez la ville"  matInput
             [formControl]="aeroportArriveeControl" [matAutocomplete]="autoArrivee">
         <mat-autocomplete #autoArrivee>
             <mat-option *ngFor="let option of aeroportArriveeFilteredOptions | async" [value]="option">
@@ -18,7 +18,7 @@
             </mat-option>
         </mat-autocomplete>
         <label for="PNC">Avion :</label>
-        <input type="text" placeholder="Choisissez le modèle de l'avion'" [(ngModel)]="vol.avion" matInput
+        <input type="text" placeholder="Choisissez le modèle de l'avion'" matInput
             [formControl]="avionControl" [matAutocomplete]="autoAvion">
         <mat-autocomplete #autoAvion>
             <mat-option *ngFor="let option of avionFilteredOptions | async" [value]="option">
@@ -31,7 +31,7 @@
         <input type="number" [(ngModel)]="vol.duree" id="nom" name="nom" placeholder="Saisissez la duree"><br><br>
         <label for="prenom">Choisissez le personnel :</label>
         <label for="pilote">Pilote:</label>
-        <input type="text" placeholder="Choisissez la ville" [(ngModel)]="vol.pilote" matInput
+        <input type="text" placeholder="Choisissez la ville" matInput
             [formControl]="piloteControl" [matAutocomplete]="autoPilote">
         <mat-autocomplete #autoPilote>
             <mat-option *ngFor="let option of piloteFilteredOptions | async" [value]="option">
@@ -39,7 +39,7 @@
             </mat-option>
         </mat-autocomplete>
         <label for="copilote">Copilote :</label>
-        <input type="text" placeholder="Choisissez la ville" [(ngModel)]="vol.copilote" matInput
+        <input type="text" placeholder="Choisissez la ville"  matInput
             [formControl]="copiloteControl" [matAutocomplete]="autoCopilote">
         <mat-autocomplete #autoCopilote>
             <mat-option *ngFor="let option of copiloteFilteredOptions | async" [value]="option">
@@ -47,7 +47,7 @@
             </mat-option>
         </mat-autocomplete>
         <label for="PNC">Personnel Navigant Commercial :</label>
-        <input type="text" placeholder="Choisissez la ville" [(ngModel)]="vol.pnc" matInput
+        <input type="text" placeholder="Choisissez la ville"  matInput
             [formControl]="pncControl" [matAutocomplete]="autoPNC">
         <mat-autocomplete #autoPNC>
             <mat-option *ngFor="let option of pncFilteredOptions | async" [value]="option">

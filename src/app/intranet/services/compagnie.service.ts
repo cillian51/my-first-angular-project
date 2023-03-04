@@ -74,7 +74,6 @@ export class CompagnieService {
   async getFireAvs() {
     await getDocs(collection(this.bdd, 'avions'))
       .then(av => {
-        //this.listeAvions = [];
         console.log(av);
         av.forEach(a => {
           console.log(a.id, a.data());
@@ -101,6 +100,13 @@ export class CompagnieService {
   async delFireAvions(code: string) {
     const docAvion = doc(this.bdd, 'avions', code);
     await deleteDoc(docAvion);
+  }
+
+  /** Ajouter un avion à firebase */
+  async addFireAvions(code: string, data: AvionI) {
+    const docAvion = doc(this.bdd, 'avions', code);
+    this.listeAvions.push({ id: code, data: data as AvionI });
+    await setDoc(docAvion, data, { merge: true });
   }
 
   /** Update un avion grâce à son code et les data*/

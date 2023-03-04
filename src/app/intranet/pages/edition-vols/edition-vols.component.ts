@@ -109,11 +109,21 @@ export class EditionVolsComponent implements OnInit {
 
   /** Mettre a jour notre vol */
   addVol() {
+    this.vol.aeroportArrivee =this.aeroportArriveeControl.value;
+    this.vol.aeroportDepart =this.aeroportDepartControl.value;
+    this.vol.pilote = this.piloteControl.value;
+    this.vol.copilote = this.copiloteControl.value;
+    this.vol.pnc = this.pncControl.value;
     let codeAeroportDepart = this.codeAeroport(this.vol.aeroportDepart);
     let codeAeroportArrivee = this.codeAeroport(this.vol.aeroportArrivee);
     this.vol.code = codeAeroportDepart + "-" + codeAeroportArrivee +"-"+ this.vol.date;
     console.log("Le vol va être ajouté ici :");
     this.compagnie.addFireVols(this.vol.code, this.vol);
+    this.router.navigateByUrl('/intranet');
+  }
+
+  retourPersonnel() {
+    console.log("Ajout du vol annulée");
     this.router.navigateByUrl('/intranet');
   }
 }

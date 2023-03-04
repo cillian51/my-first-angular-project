@@ -12,12 +12,12 @@ import { AuthService } from './auth.service';
 export class PagesService {
 
   constructor(private readonly http: HttpClient, private bdd: Firestore) {
-    // this.getPages();
+    this.getPages();
   }
-  // mentions:PagesI = {
-  //   titre:"Mentions Légales",
-  //   contenu :"Ces mentions ne servent à rien parce que c'est un cours et que de toute façon tout est partagé."
-  // };
+  mentions:PagesI = {
+    titre:"Mentions Légales",
+    contenu :"Ces mentions ne servent à rien parce que c'est un cours et que de toute façon tout est partagé."
+  };
 
   contenu: ContenusI = <ContenusI>{};
   profil: UserI = <UserI>{};

@@ -33,21 +33,3 @@ export class VolsPipe implements PipeTransform {
   }
 }
 
-
-
-
-/** récuperer le personnel pour le vol */
-
-@Pipe({
-  name: 'personnel'
-})
-
-export class PersonnelPipe implements PipeTransform {
-  constructor(public compagnie:CompagnieService) { }
-  
-  async transform(personnelId:string): Promise<string>{
-    const personnel = await (await this.compagnie.getFirePersonnels(personnelId)).data();
-    console.log(personnel);
-    return (personnel?.['nom'].toUpperCase() + " " + personnel?.['prenom'] + " " +"(" +personnel?.['habilitation']+")");
-  }
-}
