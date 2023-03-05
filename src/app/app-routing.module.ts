@@ -6,9 +6,11 @@ import { ErreurRouteComponent } from './pages/erreur-route/erreur-route.componen
 import { ProfilComponent } from './pages/profil/profil.component';
 import { AuthGuard } from './securite/auth.guard';
 import { EditionProfilComponent } from './pages/edition-profil/edition-profil.component';
+import { InscriptionComponent } from './pages/inscription/inscription.component';
 
 const routes: Routes = [
   {path :'', component:ConnexionComponent},
+  {path :'inscription',component:InscriptionComponent},
   {path :'mention' , component:MentionsComponent},
   {path :'profil' , component:ProfilComponent},
   {path :'profil/edition', component:EditionProfilComponent},

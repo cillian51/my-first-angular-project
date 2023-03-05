@@ -1,11 +1,18 @@
-<section>
-    <h1> Modification du profil utilisateur </h1>
-    <form class="profil_edition" (submit)="weirdUpdate()" (reset)="retourProfil()">
-        <label >Nom:</label>
-        <input class ="p-inputtext" type="text"  name="nom" [(ngModel)]="user.user.nom"><br><br>
-        <label >Prénom:</label>
-        <input class ="p-inputtext" type="text"  name="prenom" [(ngModel)]="user.user.prenom"><br><br>
-        <input type="submit" value="Modifier">
-        <input type="reset" value="Annuler">
+<section class="container">
+    <h1 class="mb-5"> Modification du profil utilisateur </h1>
+    <form class="profil_edition row g-3" (submit)="weirdUpdate()" (reset)="retourProfil()">
+      <div class="col-md-6">
+        <label for="nom" class="form-label">Nom:</label>
+        <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="user.user.nom">
+      </div>
+      <div class="col-md-6">
+        <label for="prenom" class="form-label">Prénom:</label>
+        <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="user.user.prenom">
+      </div>
+      <div class="col-12 mt-5">
+        <button type="submit" class="btn btn-primary">Modifier</button>
+        <button type="reset" class="btn btn-secondary ms-3">Annuler</button>
+      </div>
     </form>
-</section>
+  </section>
+  

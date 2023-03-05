@@ -22,6 +22,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InscriptionComponent } from './pages/inscription/inscription.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ErreurRouteComponent,
     FooterComponent,
     ProfilComponent,
-    EditionProfilComponent
+    EditionProfilComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,

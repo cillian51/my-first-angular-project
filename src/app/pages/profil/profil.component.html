@@ -1,10 +1,29 @@
-<nav>
-    <a routerLink="edition" href>Éditer profil</a>
-</nav>
-<section>
-    <h1>Profil de l'utilisateur </h1>
-    <article>
-        <p>Nom : {{user.user.nom}}</p>
-        <p>Prénom : {{user.user.prenom}}</p>
-    </article>
-</section>
+<section class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card border-0 shadow">
+          <div class="card-body">
+            <h1 class="card-title text-center mb-4">Profil de l'utilisateur</h1>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="nom">Nom :</label>
+                  <input type="text" class="form-control" id="nom" [(ngModel)]="user.user.nom" name="nom" readonly>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="prenom">Prénom :</label>
+                  <input type="text" class="form-control" id="prenom" [(ngModel)]="user.user.prenom" name="prenom" readonly>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="mt-3">
+          <a routerLink="edition" href>Éditer profil</a>
+        </nav>
+      </div>
+    </div>
+  </section>
+  

@@ -1,0 +1,19 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  article {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
+  h1 {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  

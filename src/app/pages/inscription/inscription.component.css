@@ -1,0 +1,56 @@
+.container {
+    height: 100vh;
+  }
+  
+  .form-signin {
+    max-width: 450px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+  
+  .form-signin .form-label {
+    font-weight: bold;
+  }
+  
+  .form-signin input[type=text], .form-signin input[type=password] {
+    margin-bottom: 10px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  .btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  }
+  
+  .btn-primary.disabled, .btn-primary:disabled {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+  .show>.btn-primary.dropdown-toggle {
+    background-color: #0062cc;
+    border-color: #005cbf;
+  }
+  
+  .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+  .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  }
+  
+  .form-signin .text-center {
+    margin-top: 20px;
+  }
+  
+  .form-signin .text-center a {
+    color: #007bff;
+  }
+  

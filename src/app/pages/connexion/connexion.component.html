@@ -1,17 +1,28 @@
-<section>
-    <h2> Se connecter</h2>
-    <h3> Vous devez être connecté pour gérer les vols</h3>
-    <form (submit)="checkFromFire()" #f="ngForm">
-        <img src="https://us.123rf.com/450wm/jovanas/jovanas1602/jovanas160201197/52032258-logo-avion-volant-autour-de-la-plan%C3%A8te-terre-noire.jpg?ver=6" width="72" height="72">
-        <div class="form-floating">
-            <input type="floatingInput" class="form-control" id="id"  name="id" [(ngModel)]="id.id" #ctlId="ngModel" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating">
-            <input type="floatingPassword" class="form-control" id="password"  name="password" #ctlPasse="ngModel" [(ngModel)]="id.passe" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-        </div>
-        <input type="submit" value="Connexion" [disabled]="f.invalid">
-        <input type="reset" value="Annuler">
-    </form>
-</section>
+<div class="container h-100">
+  <div class="row align-items-center justify-content-center h-100">
+    <div class="col-12 text-center">
+      <h1 class="fw-light"><strong>PrendsTonVol</strong></h1>
+      <section class="mt-5">
+        <h3>Connectez-vous</h3>
+        <form class="form-signin" (submit)="checkFromFire()" #f="ngForm">
+          <div class="form-outline mb-4">
+            <label class="form-label">Identifiant</label>
+            <input type="text" class="form-control" name="id" [(ngModel)]="id.id" #ctlId="ngModel" required
+              placeholder="Identifiant">
+          </div>
+          <div class="form-outline mb-4">
+            <label class="form-label">Mot de passe</label>
+            <input name="pass" type="password" class="form-control" #ctlPass="ngModel" [(ngModel)]="id.passe" required
+              placeholder="Mot de passe">
+          </div>
+          <button class="btn btn-primary btn-block mb-4" type="submit" value="Connexion" [disabled]="f.invalid">
+            Connexion
+          </button>
+          <div class="text-center">
+            <p>Not a member? <a routerLink="inscription">Register</a></p>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>

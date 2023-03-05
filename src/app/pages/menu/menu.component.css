@@ -1,4 +1,7 @@
-a{
-    font-size:80%;
-    color:red;
+.navbar-color {
+    background-color: #3492b5;
+}
+
+.navbar-nav .nav-link {
+    color: white;
 }

@@ -1,0 +1,37 @@
+<div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <h1 class="fw-light"><strong>PrendsTonVol</strong> </h1>
+      <div class="col-12 text-center">
+        <section>
+          <h3>Inscription </h3>
+
+          <form class="form-signin"  (submit)="AddToFire()" #f="ngForm">
+            <div class="w-100 p-3">
+                <label class="form-label"> Nom</label>
+                <input type="text"  class="form-control" name="nom" [(ngModel)]="user.nom" #ctlId="ngModel"
+                  required placeholder="Nom">
+              </div>
+              <div class="w-100 p-3">
+                <label class="form-label"> Prénom</label>
+                <input type="text"  class="form-control" name="prenom" [(ngModel)]="user.prenom" #ctlId="ngModel"
+                  required placeholder="Prénom">
+              </div>
+            <div class="w-100 p-3">
+              <label class="form-label"> Adresse Mail</label>
+              <input type="text"  class="form-control" name="mail" [(ngModel)]="user.mail" #ctlId="ngModel"
+                required placeholder="Adresse Mail">
+            </div>
+            <div class="w-100 p-3">
+              <label class="form-label"> Mot de passe</label>
+              <input name="pass" type="password" class="form-control" #ctlPass="ngModel" [(ngModel)]="user.mdp"
+                required placeholder="Mot de Passe">
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit" value="Connexion"
+              [disabled]="f.invalid">Valider</button>
+
+          </form>
+        </section>
+
+      </div>
+    </div>
+</div>

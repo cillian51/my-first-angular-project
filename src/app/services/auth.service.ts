@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { IdI } from '../modeles/id-i';
+import { IdI, UserI } from '../modeles/id-i';
 import { UserService } from './user.service';
 
 @Injectable({
@@ -27,4 +27,20 @@ export class AuthService {
       })
       .catch(err => console.log(err));
   }
+
+  
+  createAccount(user:UserI){
+    createUserWithEmailAndPassword(this.auth,user.mail,user.mdp).then(
+      (result)=>{
+        updateProfile(result.user,
+          { displayName:user.nom.toUpperCase + " " + user.prenom,
+          }
+        )
+      }
+    )
+    return true;
+    }
+
+  
+
 }
