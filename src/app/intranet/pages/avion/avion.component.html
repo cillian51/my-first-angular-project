@@ -1,50 +1,77 @@
-<section>
+<section class="container mt-4">
     <h3>Liste des avions</h3>
-    <article>
-        <table>
+    <div class="card">
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
             <thead>
-                <tr>
-                    <td><strong>Code</strong></td>
-                    <td><strong>Modèle</strong></td>
-                    <td><strong>Capacité</strong></td>
-                    <td><strong>Autonomie</strong></td>
-                </tr>
+              <tr>
+                <th><strong>Code</strong></th>
+                <th><strong>Modèle</strong></th>
+                <th><strong>Capacité</strong></th>
+                <th><strong>Autonomie</strong></th>
+              </tr>
             </thead>
             <tbody *ngFor="let a of volServ.listeAvions" (click)="selectAvion(a.data.code)">
-                <tr>
-                    <td>{{a.data.code}}</td>
-                    <td>{{a.data.modele}}</td>
-                    <td>{{a.data.capacite}}</td>
-                    <td>{{a.data.autonomie}}</td>
-                </tr>
+              <tr>
+                <td>{{a.data.code}}</td>
+                <td>{{a.data.modele}}</td>
+                <td>{{a.data.capacite}}</td>
+                <td>{{a.data.autonomie}}</td>
+              </tr>
             </tbody>
-        </table>
-    </article>
-</section>
-
-
-<section *ngIf="isEdition">
-    <button (click)="switchEdition()">Ajouter un avion</button>
-    <h3>Modification de l'avion sélectionné !</h3>
-    <form (submit)="updateAvion()" #f="ngForm" *ngIf="avion">
-        <input [(ngModel)]="avion.modele" name="modele" placeholder="Saisissez le modèle" >
-        <input [(ngModel)]="avion.capacite" type="number" name="capacite" placeholder="Saisissez la capacité">
-        <input [(ngModel)]="avion.autonomie" type="number" name="autonomie" placeholder="Saisissez l'autonomie">
-        <input [(ngModel)]="avion.code" name="code" placeholder="Saisissez le code">
-        <input type="submit" value="Valider" >
-        <input type="reset" value="Annuler" (click)="resetAvion()">
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="container mt-4" *ngIf="isEdition">
+    <button class="btn btn-primary" (click)="switchEdition()">Ajouter un avion</button>
+    <h3 class="mt-4">Modification de l'avion sélectionné !</h3>
+    <form class="card p-4" (submit)="updateAvion()" #f="ngForm" *ngIf="avion">
+      <div class="form-group">
+        <label for="modele">Modèle :</label>
+        <input [(ngModel)]="avion.modele" id="modele" name="modele" class="form-control" placeholder="Saisissez le modèle">
+      </div>
+      <div class="form-group">
+        <label for="capacite">Capacité :</label>
+        <input [(ngModel)]="avion.capacite" type="number" id="capacite" name="capacite" class="form-control" placeholder="Saisissez la capacité">
+      </div>
+      <div class="form-group">
+        <label for="autonomie">Autonomie :</label>
+        <input [(ngModel)]="avion.autonomie" type="number" id="autonomie" name="autonomie" class="form-control" placeholder="Saisissez l'autonomie">
+      </div>
+      <div class="form-group">
+        <label for="code">Code :</label>
+        <input [(ngModel)]="avion.code" id="code" name="code" class="form-control" placeholder="Saisissez le code">
+      </div>
+      <button type="submit" class="btn btn-primary mr-2">Valider</button>
+      <button type="reset" class="btn btn-secondary" (click)="resetAvion()">Annuler</button>
     </form>
-</section>
+  </section>
 
-<section *ngIf="!isEdition">
-    <button (click)="switchEdition()">Modifier un avion</button>
-    <h3>Ajout d'un avion!</h3>
-    <form (submit)="addAvion()" #f="ngForm" *ngIf="avion" >
-        <input [(ngModel)]="avion.modele" name="modele" placeholder="Saisissez le modèle">
-        <input [(ngModel)]="avion.capacite" type="number" name="capacite" placeholder="Saisissez la capacité">
-        <input [(ngModel)]="avion.autonomie" type="number" name="autonomie" placeholder="Saisissez l'autonomie">
-        <input [(ngModel)]="avion.code" name="code" placeholder="Saisissez le code">
-        <input type="submit" value="Valider" >
-        <input type="reset" value="Annuler" (click)="resetAvion()">
+<section class="container mt-4" *ngIf="!isEdition">
+    <button class="btn btn-primary" (click)="switchEdition()">Modifier un avion</button>
+    <h3 class="mt-4">Ajout d'un avion!</h3>
+    <form class="card p-4" (submit)="addAvion()" #f="ngForm" *ngIf="avion" >
+        <div class="form-group">
+            <label for="modele">Modèle :</label>
+            <input [(ngModel)]="avion.modele" id="modele" name="modele" class="form-control" placeholder="Saisissez le modèle">
+          </div>
+          <div class="form-group">
+            <label for="capacite">Capacité :</label>
+            <input [(ngModel)]="avion.capacite" type="number" id="capacite" name="capacite" class="form-control" placeholder="Saisissez la capacité">
+          </div>
+          <div class="form-group">
+            <label for="autonomie">Autonomie :</label>
+            <input [(ngModel)]="avion.autonomie" type="number" id="autonomie" name="autonomie" class="form-control" placeholder="Saisissez l'autonomie">
+          </div>
+          <div class="form-group">
+            <label for="code">Code :</label>
+            <input [(ngModel)]="avion.code" id="code" name="code" class="form-control" placeholder="Saisissez le code">
+          </div>
+          <button type="submit" class="btn btn-primary mr-2">Valider</button>
+          <button type="reset" class="btn btn-secondary" (click)="resetAvion()">Annuler</button>
     </form>
 </section>

@@ -1,0 +1,84 @@
+section {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #888888;
+  }
+  
+  h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"],
+  input[type="reset"] {
+    background-color: #3492b5;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  input[type="submit"]:hover,
+  input[type="reset"]:hover {
+    background-color: #439cb5;
+  }
+  
+  mat-option {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  mat-option:hover {
+    background-color: #ddd;
+  }
+  
+  .mat-autocomplete-panel {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+  
+  .mat-option[aria-selected="true"] {
+    background-color: #439cb5;
+    color: white;
+  }
+  
+  .mat-option[aria-selected="true"]:hover {
+    background-color: #439cb5;
+    color: white;
+  }
+  section {
+    position: relative;
+    max-height: calc(100vh - 200px); /* 100px est la hauteur supposée de votre footer */
+    overflow-y: auto;
+  }
+  

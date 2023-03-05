@@ -1,12 +1,14 @@
 .footer {
   background-color: #3492b5;
   color: #fff;
-  padding: 30px 0;
-  position: absolute;
+  padding: 20px 0;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }
-
+#container {
+  height:100%;
+}
 .footer-link {
   color: #fff;
   text-decoration: none;
@@ -15,4 +17,8 @@
 
 .footer-link:hover {
   text-decoration: underline;
+}
+
+a{
+  font-weight: bold;
 }

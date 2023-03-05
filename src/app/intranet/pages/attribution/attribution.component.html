@@ -1,38 +1,52 @@
-<nav>
-    <a routerLink="edition" href>Éditer vols</a>
-</nav>
-<section> 
-    <h3>Liste des vols</h3>
-    <article >
-        <input [(ngModel)]="filtreModele" name="filtre"> 
-        <table>
+<section class="container">
+    <h3 class="text-center">Liste des vols</h3>
+    <div class="row">
+      <div class="col-xl-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="edition" href>Ajouter un vol</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div >
+        <article>
+          <input [(ngModel)]="filtreModele" name="filtre" class="form-control " placeholder="Rechercher un vol">
+          <table class="table table-striped">
             <thead>
-                <tr>
-                    <td>Code</td>
-                    <td>Modèle d'avion</td>
-                    <td>Date de départ</td>
-                    <td>Durée du vol</td>
-                    <td>Aéroport de départ</td>
-                    <td>Aéroport d'arrivée</td>
-                    <td>Personnel déjà attribué</td>
-                </tr>
+              <tr>
+                <th>Code</th>
+                <th>Modèle d'avion</th>
+                <th>Date de départ</th>
+                <th>Durée du vol</th>
+                <th>Aéroport de départ</th>
+                <th>Aéroport d'arrivée</th>
+                <th>Personnel déjà attribué</th>
+              </tr>
             </thead>
-            <tr *ngFor= "let v of compagnie.listeVols | vols:filtreModele">
+            <tbody>
+              <tr *ngFor="let v of compagnie.listeVols | vols:filtreModele">
                 <td>{{v.data.code}}</td>
                 <td>{{v.data.avion}}</td>
                 <td>{{v.data.date}}</td>
-                <td>{{v.data.duree * 1000 * 60| date:'HH:mm':'UTC'}}</td>
+                <td>{{v.data.duree * 1000 * 60 | date:'HH:mm':'UTC'}}</td>
                 <td>{{v.data.aeroportDepart}}</td>
                 <td>{{v.data.aeroportArrivee}}</td>
                 <td>
-                    <ul>
-                        <li>{{v.data.pilote }} (Pilote)</li>
-                        <li>{{v.data.copilote }} (Copilote)</li>
-                        <li>{{v.data.pnc }} (PNC)</li>
-                    </ul>
+                  <ul>
+                    <li>{{v.data.pilote}} (Pilote)</li>
+                    <li>{{v.data.copilote}} (Copilote)</li>
+                    <li>{{v.data.pnc}} (PNC)</li>
+                  </ul>
                 </td>
-            </tr>
-        </table>
-    </article>
-
-</section>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </div>
+  </section>
+  
